@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Widget URL Generator</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2.0.6/css/pico.classless.min.css">
+<link rel="stylesheet" href="generate.css">
+</head>
+<body>
+<main>
+  <h1>Widget URL Generator</h1>
+
+  <section class="preview">
+    <div class="stage" id="stage"><iframe id="frame" title="Preview"></iframe></div>
+
+    <div class="row">
+      <label>Preview width <input id="pw" type="number" min="50" value="400"></label>
+      <label>Preview height <input id="ph" type="number" min="50" value="160"></label>
+      <label class="check"><input id="demo" type="checkbox" checked> Fake data</label>
+    </div>
+  </section>
+
+  <label>URL for OBS
+    <textarea id="out" readonly rows="4"></textarea>
+  </label>
+  <button id="copy" type="button">Copy URL</button>
+
+  <label>Widget
+    <select id="widget">
+      <option value="wheel">Wheel spin</option>
+      <option value="total">Total raised</option>
+      <option value="donations">Recent donations</option>
+    </select>
+  </label>
+
+  <label id="layout-row" hidden>Donations layout
+    <select id="layout">
+      <option value="cycle">One at a time</option>
+      <option value="list">Vertical list</option>
+      <option value="row">Horizontal list</option>
+    </select>
+  </label>
+
+  <label>Campaign ID <input id="campaign"></label>
+  <label>Client ID <input id="id"></label>
+  <label>Client secret <input id="secret"></label>
+
+  <label>Accent color <input id="accent" placeholder="c8102e"></label>
+  <label>Text color <input id="fg" placeholder="ffffff"></label>
+  <label>Background color <input id="bg" placeholder="transparent"></label>
+  <label>Font <input id="font" placeholder="Barlow Condensed"></label>
+
+</main>
+<script type="module" src="generate.js"></script>
+</body>
+</html>

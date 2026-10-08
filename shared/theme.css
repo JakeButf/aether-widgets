@@ -1,0 +1,163 @@
+:root {
+  --bg: transparent;
+  --fg: #fff;
+  --accent: #c8102e;
+  --track: #5a0a14;
+  --border: #fff;
+  --text: var(--fg);
+  --amount: var(--accent);
+  --name: var(--fg);
+  --comment: var(--fg);
+  --radius: 22px;
+  --pad: 12px;
+  --bw: 4px;
+  --font: "Barlow Condensed", sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+  color: var(--fg);
+  font-family: var(--font);
+  font-weight: 800;
+}
+
+html.preview { background: #0d1b36; }
+
+.fit { display: inline-block; white-space: nowrap; line-height: 1; }
+
+.total .row, .wheel .row { display: flex; align-items: center; overflow: hidden; }
+
+body.total { display: flex; flex-direction: column; background: var(--bg); }
+.total .row { width: 100%; }
+.total .label { height: 28%; }
+.total .value { flex: 1; }
+.total.no-label .label { display: none; }
+.total.align-left .row { justify-content: flex-start; }
+.total.align-center .row { justify-content: center; }
+.total.align-right .row { justify-content: flex-end; }
+
+body.wheel { padding: 2px; }
+.wheel .card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: var(--bw) solid var(--border);
+  border-radius: var(--radius);
+  background: var(--track);
+  overflow: hidden;
+}
+.wheel .fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0;
+  background: var(--accent);
+  transition: width 0.8s ease-out;
+}
+.wheel .content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: var(--pad);
+  color: var(--text);
+}
+.wheel .row { justify-content: center; }
+.wheel .label { height: 30%; }
+.wheel .value { flex: 1; }
+body.donations { padding: 2px; }
+.donations .box {
+  container-type: size;
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+  border: var(--bw) solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--pad);
+  overflow: hidden;
+}
+
+.donations .amount { color: var(--amount); font-size: min(35cqh, 20cqw); line-height: 1; }
+.donations .name {
+  color: var(--name);
+  font-size: min(20cqh, 10cqw);
+  line-height: 1.1;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.donations .comment {
+  --lines: 3;
+  color: var(--comment);
+  font-size: min(13cqh, 7cqw);
+  font-weight: 700;
+  line-height: 1.1;
+  min-height: calc(var(--lines) * 1.1em);
+  opacity: 0.8;
+  margin-top: 0.3em;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.donations .empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: min(20cqh, 10cqw);
+  opacity: 0.7;
+}
+
+.donations .cycle { position: relative; }
+.donations .slide {
+  position: absolute;
+  inset: var(--pad);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.5s, transform 0.5s;
+}
+.donations .slide.on { opacity: 1; transform: none; }
+
+.donations .list { display: flex; flex-direction: column; }
+.donations .item {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  font-size: calc(35cqh / var(--n));
+  line-height: 1.1;
+}
+.donations .item + .item { border-top: 1px solid color-mix(in srgb, var(--border) 30%, transparent); }
+.donations .item .top { display: flex; gap: 0.5em; white-space: nowrap; overflow: hidden; }
+.donations .item .amount { font-size: 1em; }
+.donations .item .name { font-size: 1em; flex: 1; min-width: 0; }
+.donations .item .comment { --lines: 1; font-size: 0.6em; margin-top: 0.1em; -webkit-line-clamp: 1; }
+
+.donations .list.row { flex-direction: row; }
+.donations .list.row .item {
+  min-width: 0;
+  align-items: center;
+  text-align: center;
+  padding: 0 0.5em;
+  font-size: min(30cqh, calc(20cqw / var(--n)));
+}
+.donations .list.row .item + .item { border-top: 0; border-left: 1px solid color-mix(in srgb, var(--border) 30%, transparent); }
+.donations .list.row .top { flex-direction: column; align-items: center; gap: 0.1em; max-width: 100%; }
+.donations .list.row .name { flex: none; font-size: 0.7em; }
+.donations .list.row .comment { --lines: 2; max-width: 100%; font-size: 0.5em; -webkit-line-clamp: 2; }
