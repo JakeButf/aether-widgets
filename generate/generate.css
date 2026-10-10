@@ -4,3 +4,4 @@ textarea { font-family: monospace; font-size: 12px; word-break: break-all; }
 iframe { border: 0; display: block; max-width: none; transform-origin: 0 0; }
 .row { display: flex; gap: 12px; align-items: flex-end; flex-wrap: wrap; }
 .row input[type="number"] { width: 110px; }
+.warning { color: #ff2d2d; }

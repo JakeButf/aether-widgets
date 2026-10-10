@@ -3,8 +3,8 @@ import { DEFAULT_API } from './config.js';
 const q = new URLSearchParams(location.search);
 const demo = q.has('demo');
 
-const NAMES = ['Zombie_Slayer', 'Anonymous', 'xX_Hank_Xx', 'GlitchyGoblin', 'Maria', 'Dr. Brains'];
-const COMMENTS = ['Good luck!!', '', 'For Wings for Life!', 'Spin the wheel!', '', 'brains... brains...'];
+const NAMES = ['cjnah', 'Anonymous', 'xX_Hank_Xx', 'JakeZSR', 'TestUsername10001', 'IRanOutOfGoodUsernameIdeasLol'];
+const COMMENTS = ['Good luck', '', 'this widget sure is awesome hopefully its working', 'save the animals', '', 'hey guys just wanted to say what is up. im writing out a really long message. hopefully you read it. if not im charging back so'];
 
 let fake = { total: 0, goal: 0, currency: 'USD', donations: [] };
 
